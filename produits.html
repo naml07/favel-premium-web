@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1A0028">
+  <title>Nos Produits — FAVEL | Communication Premium Afrique de l'Ouest</title>
+  <meta name="description" content="Découvrez notre gamme de templates Canva premium : Pack 15 Format Carré, Pack 15 Format Portrait, et le Méga Pack 50+ Templates. Commandez via WhatsApp en moins de 2 minutes.">
+  <link rel="canonical" href="https://favel.tg/produits.html">
+  <meta property="og:title"       content="Nos Produits — FAVEL">
+  <meta property="og:description" content="Templates Canva premium pour entrepreneurs africains : 15 formats carrés, 15 portraits, ou le méga pack 50+.">
+  <meta property="og:url"         content="https://favel.tg/produits.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    /* ── Nav Logo Image ── */
+    .nav__logo-img {
+      display: block;
+      height: 44px;
+      width: auto;
+      filter: drop-shadow(0 0 8px rgba(181,128,189,0.6));
+      transition: filter 0.3s ease;
+    }
+    .nav__logo:hover .nav__logo-img {
+      filter: drop-shadow(0 0 14px rgba(181,128,189,0.9));
+    }
+
+    /* ── Products Grid ── */
+    .products-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+    @media (min-width: 640px) {
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .products-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* ── Product Card Enhanced ── */
+    .product-card {
+      background: linear-gradient(145deg, rgba(119,56,116,0.25) 0%, var(--purple-950) 100%);
+      border: 1px solid rgba(181,128,189,0.25);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(181,128,189,0.25);
+      border-color: rgba(212,190,231,0.5);
+    }
+    .product-card__image {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+    }
+    .product-card__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .product-card:hover .product-card__image img {
+      transform: scale(1.06);
+    }
+    .product-card__body {
+      padding: var(--space-6);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      flex: 1;
+    }
+    .product-card__category {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple-300);
+    }
+    .product-card__title {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+    }
+    .product-card__desc {
+      font-size: var(--text-sm);
+      color: var(--gray-300);
+      line-height: 1.65;
+      flex: 1;
+    }
+    .product-card__benefits {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      margin: 0;
+    }
+    .product-card__benefit {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--text-sm);
+      color: var(--gray-300);
+      font-weight: 500;
+    }
+    .product-card__benefit-icon {
+      color: var(--purple-300);
+      font-weight: 900;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .product-card__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+      padding-top: var(--space-4);
+      border-top: 1px solid rgba(181,128,189,0.15);
+      margin-top: auto;
+    }
+    .product-card__price {
+      display: flex;
+      flex-direction: column;
+    }
+    .product-card__price-amount {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+    }
+    .product-card__price-unit {
+      font-size: var(--text-xs);
+      color: var(--gray-400);
+      margin-top: 2px;
+    }
+
+    /* Badge */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .badge-vivid {
+      background: var(--gradient-cta);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(181,128,189,0.45);
+    }
+    .badge-gold {
+      background: var(--gold);
+      color: #1A0028;
+      box-shadow: 0 4px 16px rgba(245,200,66,0.4);
+    }
+
+    /* Section Label */
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--purple-300);
+      background: rgba(181,128,189,0.12);
+      border: 1px solid rgba(212,190,231,0.25);
+      border-radius: var(--radius-full);
+      padding: 0.35rem 1rem;
+      margin-bottom: var(--space-6);
+    }
+
+    /* Filter tabs */
+    .filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-bottom: var(--space-10);
+    }
+    .filter-tab {
+      padding: 0.6rem 1.5rem;
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--gray-300);
+      background: rgba(170,34,204,0.06);
+      border: 1px solid rgba(204,68,221,0.2);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .filter-tab:hover {
+      background: rgba(170,34,204,0.15);
+      border-color: rgba(224,102,238,0.4);
+      color: var(--white);
+    }
+    .filter-tab.active {
+      background: var(--gradient-cta);
+      border-color: transparent;
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(170,34,204,0.5);
+    }
+
+    /* Page Header */
+    .page-header {
+      padding-block: calc(var(--nav-height) + var(--space-16)) var(--space-16);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--gradient-hero);
+    }
+    .page-header__title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: -0.03em;
+      margin-bottom: var(--space-5);
+      line-height: 1.05;
+    }
+    .page-header__subtitle {
+      font-size: var(--text-lg);
+      color: var(--gray-300);
+      max-width: 620px;
+      margin-inline: auto;
+      line-height: 1.7;
+    }
+    .text-gradient {
+      background: var(--gradient-cta);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      justify-content: center;
+      margin-bottom: var(--space-6);
+      font-size: var(--text-sm);
+      color: var(--purple-300);
+    }
+    .breadcrumb a { color: var(--gray-400); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--purple-300); }
+    .breadcrumb__sep { color: var(--gray-600); }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+  <div class="page-loader" aria-hidden="true"><div class="loader-logo">FAVEL</div></div>
+
+  <header role="banner">
+    <nav class="nav" aria-label="Navigation principale">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo" aria-label="FAVEL — Accueil" style="display:flex;align-items:center;gap:var(--space-2);">
+          <img src="LOGO2.jpg" alt="FAVEL — Agence de communication premium" class="nav__logo-img" width="52" height="52" style="height:52px;width:auto;border-radius:8px;object-fit:contain;">
+          <span style="font-size:2rem;font-weight:900;letter-spacing:-0.03em;background:var(--gradient-cta);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">FAVEL</span>
+        </a>
+        <ul class="nav__links" role="list">
+          <li><a href="index.html"           class="nav__link">Accueil</a></li>
+          <li><a href="produits.html"        class="nav__link active" aria-current="page">Produits</a></li>
+          <li><a href="packs.html"           class="nav__link">Packs</a></li>
+          <li><a href="ebooks.html"          class="nav__link">Ebooks</a></li>
+          <li><a href="notre-histoire.html"  class="nav__link">Notre Histoire</a></li>
+          <li><a href="contact.html"         class="nav__link">Contact</a></li>
+        </ul>
+        <div class="nav__cta">
+          <a href="contact.html" class="btn btn-primary">Nous écrire</a>
+        </div>
+        <button class="nav__hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+    <nav class="nav__mobile" aria-label="Menu mobile">
+      <a href="index.html"          class="nav__mobile-link">Accueil</a>
+      <a href="produits.html"       class="nav__mobile-link">Produits</a>
+      <a href="packs.html"          class="nav__mobile-link">Packs</a>
+      <a href="ebooks.html"         class="nav__mobile-link">Ebooks</a>
+      <a href="notre-histoire.html" class="nav__mobile-link">Notre Histoire</a>
+      <a href="contact.html"        class="nav__mobile-link">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="orb orb-purple" style="width:500px;height:500px;top:-200px;right:-150px;opacity:0.3;" aria-hidden="true"></div>
+      <div class="orb orb-violet" style="width:300px;height:300px;bottom:-100px;left:-80px;opacity:0.2;" aria-hidden="true"></div>
+      <div class="container" style="position:relative;z-index:2;">
+        <nav aria-label="Fil d'Ariane">
+          <ol class="breadcrumb">
+            <li><a href="index.html">Accueil</a></li>
+            <li class="breadcrumb__sep" aria-hidden="true">/</li>
+            <li aria-current="page">Produits</li>
+          </ol>
+        </nav>
+        <p class="section-label" data-reveal="fade-up">Notre catalogue</p>
+        <h1 class="page-header__title" data-reveal="fade-up" data-delay="100">
+          Nos <span class="text-gradient">Produits</span> Premium
+        </h1>
+        <p class="page-header__subtitle" data-reveal="fade-up" data-delay="200">
+          Des templates Canva de niveau international pour dominer vos réseaux sociaux et booster vos ventes en Afrique de l'Ouest.
+        </p>
+      </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="section" id="produits" aria-labelledby="produits-title">
+      <div class="container">
+
+        <!-- Filter Tabs -->
+        <div class="filter-tabs" role="tablist" aria-label="Filtrer les produits" data-reveal="fade-up">
+          <button class="filter-tab active" role="tab" aria-selected="true"  data-filter="all">Tout voir</button>
+          <button class="filter-tab"        role="tab" aria-selected="false" data-filter="canva">⚡ Templates Canva</button>
+          <button class="filter-tab"        role="tab" aria-selected="false" data-filter="digital">Digital</button>
+        </div>
+
+        <h2 class="sr-only" id="produits-title">Catalogue de nos produits</h2>
+
+        <div class="products-grid" data-stagger>
+
+          <!-- Produit 1 : Pack 15 Format Carré -->
+          <article class="product-card" data-category="canva digital" data-reveal="fade-up">
+            <div class="product-card__image">
+              <img src="LE%20PACK%20DE%2015%20en%20format%20carr%C3%A9%20prix%201200FR.jpg"
+                   alt="Pack 15 Templates Canva Format Carré 1080x1080px pour Instagram Facebook LinkedIn WhatsApp"
+                   loading="lazy">
+              <div class="badge badge-vivid"
+                   style="position:absolute;top:12px;left:12px;z-index:2;">
+                ⚡ Canva 100% Modifiable
+              </div>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Digital · Templates Canva</p>
+              <h3 class="product-card__title">Pack 15 Templates — Format Carré</h3>
+              <p class="product-card__desc">
+                15 modèles de flyers et publications au format carré (1080×1080px). Parfaits pour Instagram, Facebook, LinkedIn et WhatsApp.
+              </p>
+              <ul class="product-card__benefits" aria-label="Avantages inclus">
+                <li class="product-card__benefit">
+                  <span class="product-card__benefit-icon" aria-hidden="true">✓</span>
+                  15 designs uniques et modernes
+                </li>
+                <li class="product-card__benefit">
+                  <span class="product-card__benefit-icon" aria-hidden="true">✓</span>
+                  Modifiable en 1 clic sur Canva (Gratuit/Pro)
+                </li>
+                <li class="product-card__benefit">
+                  <span class="product-card__benefit-icon" aria-hidden="true">✓</span>
+                  Accès instantané après paiement
+                </li>
+              </ul>
+              <div class="product-card__footer">
+                <div class="product-card__price">
+                  <span class="product-card__price-amount">1 200</span>
+                  <span class="product-card__price-unit">CFA / accès à vie</span>
+                </div>
+                <button class="btn btn-primary product-card__cta"
+                  data-order="Pack 15 Templates Canva (Carré)"
+                  data-product="Pack 15 Templates Canva - Format Carré (Réf: https://canva.link/pack15formatcarre)"
+                  data-price="1200"
+                  data-type="Template Canva"
+                  aria-label="Commander le Pack 15 Templates Format Carré">
+                  Commander
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Produit 2 : Pack 15 Format Portrait -->
+          <article class="product-card" data-category="canva digital" data-reveal="fade-up" data-delay="100">
+            <div class="product-card__image">
+              <img src="LE%20PACK%20DE%2015%20en%20format%20carr%C3%A9%20prix%201200FR%202.jpg"
+                   alt="Pack 15 Templates Canva Format Portrait 1080x1920px pour Stories Instagram Reels TikTok WhatsApp"
+                   loading="lazy">
+              <div class="badge badge-vivid"
+                   style="position:absolute;top:12px;left:12px;z-index:2;">
+                📱 Spécial Stories &amp; Statuts
+              </div>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Digital · Templates Canva</p>
+              <h3 class="product-card__title">Pack 15 Templates — Format Portrait</h3>
+              <p class="product-card__desc">
+                15 modèles verticaux haute conversion pour vos Stories Instagram, Reels, TikTok et statuts WhatsApp Business.
+              </p>
+              <ul class="product-card__benefits" aria-label="Avantages inclus">
+                <li class="product-card__benefit">
+                  <span class="product-card__benefit-icon" aria-hidden="true">✓</span>
+                  Format vertical 1080×1920px optimal
+                </li>
+                <li class="product-card__benefit">
+                  <span class="product-card__benefit-icon" aria-hidden="true">✓</span>
+                  Idéal pour vendre en statut WhatsApp
+                </li>
+                <li class="product-card__benefit">
+                  <span class="product-card__benefit-icon" aria-hidden="true">✓</span>
+                  Accès instantané après paiement
+                </li>
+              </ul>
+              <div class="product-card__footer">
+                <div class="product-card__price">
+                  <span class="product-card__price-amount">1 200</span>
+                  <span class="product-card__price-unit">CFA / accès à vie</span>
+                </div>
+                <button class="btn btn-primary product-card__cta"
+                  data-order="Pack 15 Templates Canva (Portrait)"
+                  data-product="Pack 15 Templates Canva - Format Portrait (Réf: https://canva.link/pack15-format-portrait)"
+                  data-price="1200"
+                  data-type="Template Canva"
+                  aria-label="Commander le Pack 15 Templates Format Portrait">
+                  Commander
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Produit 3 : Méga Pack 50+ Templates — FEATURED -->
+          <article class="product-card" data-category="canva digital" data-reveal="fade-up" data-delay="200"
+                   style="border-color:rgba(245,200,66,0.45);box-shadow:0 12px 48px rgba(245,200,66,0.18);background:linear-gradient(145deg,rgba(100,60,0,0.3) 0%,rgba(26,0,40,0.95) 100%);">
+            <div class="product-card__image">
+              <img src="LE%20PACK%20DE%2050%20prix%203500FR.jpg"
+                   alt="Méga Pack 50+ Templates Canva Carré et Portrait — Pack économique 60 templates"
+                   loading="lazy">
+              <div class="badge badge-gold"
+                   style="position:absolute;top:12px;left:12px;z-index:2;">
+                🔥 ÉCONOMIE MAXIMALE
+              </div>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category" style="color:var(--gold);">Digital · Méga Pack Canva</p>
+              <h3 class="product-card__title" style="color:#fff;">Méga Pack 50+ Templates (Carré + Portrait)</h3>
+              <p class="product-card__desc">
+                Le pack complet ultime ! Regroupe 35 flyers au format carré et 25 au format portrait (60 templates au total) pour dominer vos réseaux et booster vos ventes.
+              </p>
+              <ul class="product-card__benefits" aria-label="Avantages inclus">
+                <li class="product-card__benefit">
+                  <span class="product-card__benefit-icon" style="color:var(--gold);" aria-hidden="true">✓</span>
+                  60 designs premium (35 carrés + 25 portraits)
+                </li>
+                <li class="product-card__benefit">
+                  <span class="product-card__benefit-icon" style="color:var(--gold);" aria-hidden="true">✓</span>
+                  Tous vos besoins couverts (Feed + Story + Statut)
+                </li>
+                <li class="product-card__benefit">
+                  <span class="product-card__benefit-icon" style="color:var(--gold);" aria-hidden="true">✓</span>
+                  Rentabilité immédiate pour votre business
+                </li>
+              </ul>
+              <div class="product-card__footer" style="border-top-color:rgba(245,200,66,0.2);">
+                <div class="product-card__price">
+                  <span class="product-card__price-amount" style="color:var(--gold);">3 500</span>
+                  <span class="product-card__price-unit">CFA / accès à vie</span>
+                </div>
+                <button class="btn product-card__cta"
+                  style="background:var(--gradient-gold);color:#1A0028;font-weight:800;box-shadow:0 6px 24px rgba(245,200,66,0.45);"
+                  data-order="Méga Pack 50+ Templates Canva"
+                  data-product="Méga Pack 50+ Templates Canva (35 Carrés + 25 Portraits)"
+                  data-price="3500"
+                  data-type="Template Canva"
+                  aria-label="Commander le Méga Pack 50+ Templates Canva">
+                  Commander le pack →
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Band -->
+    <section class="section" aria-labelledby="cta-prod-title">
+      <div class="container">
+        <div class="cta-band" data-reveal="scale-up">
+          <div class="orb orb-purple" style="width:300px;height:300px;top:-80px;right:-80px;opacity:0.25;" aria-hidden="true"></div>
+          <p class="section-label" style="margin-bottom:var(--space-4);">Vous ne savez pas quoi choisir ?</p>
+          <h2 class="cta-band__title" id="cta-prod-title">Demandez conseil gratuitement</h2>
+          <p class="cta-band__subtitle">Notre équipe vous aide à identifier la solution idéale pour votre budget et votre projet.</p>
+          <div class="cta-band__actions">
+            <a href="https://wa.me/22890000000?text=Bonjour%20FAVEL%2C%20j'aimerais%20des%20conseils%20sur%20vos%20produits."
+               target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+              Obtenir des conseils
+            </a>
+            <a href="packs.html" class="btn btn-secondary btn-lg">Voir les packs →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION MERCI ─────────────────────────────────── -->
+    <section aria-label="Remerciements FAVEL" style="padding-block:var(--space-20) var(--space-16);background:linear-gradient(135deg,#2D0B5A 0%,#5B1A8A 60%,#8B2FC9 100%);overflow:hidden;position:relative;">
+      <div aria-hidden="true" style="position:absolute;top:-80px;left:-60px;width:300px;height:300px;background:rgba(168,85,247,0.18);border-radius:50%;filter:blur(80px);"></div>
+      <div aria-hidden="true" style="position:absolute;bottom:-80px;right:-60px;width:350px;height:350px;background:rgba(147,51,234,0.15);border-radius:50%;filter:blur(100px);"></div>
+      <div class="container" style="text-align:center;position:relative;z-index:2;">
+        <figure style="margin:0 auto;max-width:340px;">
+          <img src="MERCI.jpg" alt="Merci pour votre confiance — FAVEL" width="340" height="340" loading="lazy"
+               style="width:100%;max-width:340px;height:auto;border-radius:var(--radius-2xl);box-shadow:0 20px 60px rgba(147,51,234,0.45),0 0 0 3px rgba(168,85,247,0.3);">
+          <figcaption style="margin-top:var(--space-6);font-family:var(--font-display);font-size:clamp(1.25rem,3vw,1.75rem);font-weight:700;color:var(--white);">
+            Merci de nous faire confiance ✨
+            <span style="display:block;font-family:var(--font-body);font-size:var(--text-base);font-weight:400;color:var(--purple-300);margin-top:var(--space-2);">Chaque client FAVEL est un partenaire de croissance</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="nav__logo" aria-label="FAVEL — Accueil" style="display:flex;align-items:center;gap:var(--space-2);">
+            <img src="LOGO2.jpg" alt="FAVEL Logo" class="nav__logo-img" width="48" height="48" style="height:48px;width:auto;border-radius:6px;object-fit:contain;">
+            <span style="font-size:1.75rem;font-weight:900;letter-spacing:-0.03em;background:var(--gradient-cta);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">FAVEL</span>
+          </a>
+          <p>Votre partenaire communication premium en Afrique francophone.</p>
+        </div>
+        <nav aria-label="Pages du site">
+          <p class="footer__title">Navigation</p>
+          <ul class="footer__links" role="list">
+            <li><a href="index.html"   class="footer__link">Accueil</a></li>
+            <li><a href="produits.html" class="footer__link">Produits</a></li>
+            <li><a href="packs.html"   class="footer__link">Packs</a></li>
+            <li><a href="ebooks.html"  class="footer__link">Ebooks</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="Informations">
+          <p class="footer__title">Infos</p>
+          <ul class="footer__links" role="list">
+            <li><a href="notre-histoire.html" class="footer__link">Notre Histoire</a></li>
+            <li><a href="contact.html"        class="footer__link">Contact</a></li>
+          </ul>
+        </nav>
+        <div>
+          <p class="footer__title">Contact</p>
+          <ul class="footer__links" role="list">
+            <li><a href="https://wa.me/22890000000" class="footer__link" target="_blank" rel="noopener">WhatsApp</a></li>
+            <li><a href="mailto:contact@favel.tg"   class="footer__link">contact@favel.tg</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2025 FAVEL. Tous droits réservés.</p>
+        <p class="footer__copy"><em>Facilitez votre communication</em></p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/22890000000" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat WhatsApp FAVEL">
+    <div class="whatsapp-float__pulse" aria-hidden="true"></div>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>
+  <button class="scroll-top" aria-label="Retour en haut de page">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/purchase.js" defer></script>
+  <script>
+    // Filter tabs
+    document.querySelectorAll('.filter-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.filter-tab').forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected','false');
+        });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected','true');
+        const filter = tab.dataset.filter;
+        document.querySelectorAll('.product-card').forEach(card => {
+          const cats = card.dataset.category ? card.dataset.category.split(' ') : [];
+          const show = filter === 'all' || cats.includes(filter);
+          card.style.display = show ? '' : 'none';
+          card.style.opacity = show ? '1' : '0';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

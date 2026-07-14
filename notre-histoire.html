@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1A0533">
+  <title>Notre Histoire — FAVEL | Agence Communication Premium Lomé Togo</title>
+  <meta name="description" content="Découvrez l'histoire de FAVEL, l'agence de communication née à Lomé pour servir les entrepreneurs africains. Notre mission, nos valeurs et l'équipe derrière la marque.">
+  <link rel="canonical" href="https://favel.tg/notre-histoire.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    .timeline {
+      position: relative;
+      padding-left: var(--space-10);
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 16px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--purple-500), var(--purple-700), transparent);
+    }
+    .timeline-item {
+      position: relative;
+      padding-bottom: var(--space-10);
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: calc(-1 * var(--space-10) + 12px);
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--purple-400);
+      border: 2px solid var(--purple-900);
+      box-shadow: 0 0 0 4px rgba(147,51,234,0.2);
+    }
+    .timeline-year {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--purple-400);
+      margin-bottom: var(--space-2);
+    }
+    .timeline-title {
+      font-size: var(--text-xl);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: var(--space-2);
+    }
+    .timeline-text {
+      font-size: var(--text-sm);
+      color: var(--gray-400);
+      line-height: 1.7;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+    @media (min-width: 480px) { .team-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px){ .team-grid { grid-template-columns: repeat(3, 1fr); } }
+    .team-card {
+      text-align: center;
+      padding: var(--space-6);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--glass-border);
+      background: var(--glass-bg);
+      transition: all var(--duration-normal) var(--ease-smooth);
+    }
+    .team-card:hover {
+      border-color: rgba(147,51,234,0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(147,51,234,0.12);
+    }
+    .team-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--purple-700), var(--purple-500));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 700;
+      color: white;
+      margin: 0 auto var(--space-4);
+      border: 3px solid rgba(147,51,234,0.3);
+    }
+    .team-name {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: var(--space-1);
+    }
+    .team-role {
+      font-size: var(--text-sm);
+      color: var(--purple-300);
+      font-weight: 500;
+      margin-bottom: var(--space-3);
+    }
+    .team-bio {
+      font-size: var(--text-sm);
+      color: var(--gray-400);
+      line-height: 1.6;
+    }
+    .mission-quote {
+      position: relative;
+      padding: var(--space-8) var(--space-6);
+      background: linear-gradient(135deg, rgba(74,16,128,0.3) 0%, rgba(107,33,168,0.15) 100%);
+      border: 1px solid rgba(147,51,234,0.25);
+      border-left: 4px solid var(--purple-400);
+      border-radius: var(--radius-xl);
+    }
+    .mission-quote::before {
+      content: '"';
+      position: absolute;
+      top: var(--space-2);
+      left: var(--space-5);
+      font-size: 6rem;
+      line-height: 1;
+      color: var(--purple-500);
+      opacity: 0.3;
+      font-family: var(--font-display);
+    }
+    .mission-quote blockquote {
+      font-family: var(--font-display);
+      font-size: clamp(var(--text-xl), 3vw, var(--text-3xl));
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.35;
+      letter-spacing: -0.02em;
+      position: relative;
+      z-index: 1;
+    }
+    .mission-quote cite {
+      display: block;
+      font-size: var(--text-sm);
+      color: var(--purple-300);
+      font-style: normal;
+      margin-top: var(--space-4);
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+  <div class="page-loader" aria-hidden="true"><div class="loader-logo">FAVEL</div></div>
+
+  <header role="banner">
+    <nav class="nav" aria-label="Navigation principale">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo" aria-label="FAVEL — Accueil" style="display:flex;align-items:center;gap:var(--space-2);"><img src="LOGO2.jpg" alt="FAVEL Logo" class="nav__logo-img" width="52" height="52" style="height:52px;width:auto;border-radius:8px;object-fit:contain;"><span style="font-size:2rem;font-weight:900;letter-spacing:-0.03em;background:var(--gradient-cta);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">FAVEL</span></a>
+        <ul class="nav__links" role="list">
+          <li><a href="index.html"           class="nav__link">Accueil</a></li>
+          <li><a href="produits.html"        class="nav__link">Produits</a></li>
+          <li><a href="packs.html"           class="nav__link">Packs</a></li>
+          <li><a href="ebooks.html"          class="nav__link">Ebooks</a></li>
+          <li><a href="notre-histoire.html"  class="nav__link active" aria-current="page">Notre Histoire</a></li>
+          <li><a href="contact.html"         class="nav__link">Contact</a></li>
+        </ul>
+        <div class="nav__cta"><a href="contact.html" class="btn btn-primary">Nous écrire</a></div>
+        <button class="nav__hamburger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+    <nav class="nav__mobile" aria-label="Menu mobile">
+      <a href="index.html"          class="nav__mobile-link">Accueil</a>
+      <a href="produits.html"       class="nav__mobile-link">Produits</a>
+      <a href="packs.html"          class="nav__mobile-link">Packs</a>
+      <a href="ebooks.html"         class="nav__mobile-link">Ebooks</a>
+      <a href="notre-histoire.html" class="nav__mobile-link">Notre Histoire</a>
+      <a href="contact.html"        class="nav__mobile-link">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="orb orb-purple" style="width:400px;height:400px;top:-150px;left:-100px;opacity:0.15;" aria-hidden="true"></div>
+      <div class="orb orb-violet" style="width:300px;height:300px;bottom:-100px;right:-50px;opacity:0.12;" aria-hidden="true"></div>
+      <div class="container" style="position:relative;z-index:2;">
+        <nav aria-label="Fil d'Ariane">
+          <ol class="breadcrumb" style="justify-content:center;">
+            <li><a href="index.html">Accueil</a></li>
+            <li class="breadcrumb__sep" aria-hidden="true">/</li>
+            <li aria-current="page">Notre Histoire</li>
+          </ol>
+        </nav>
+        <p class="section-label" style="justify-content:center;" data-reveal="fade-up">Qui sommes-nous</p>
+        <h1 class="page-header__title" data-reveal="fade-up" data-delay="100">
+          Notre <span class="text-gradient">Histoire</span>
+        </h1>
+        <p class="page-header__subtitle" data-reveal="fade-up" data-delay="200">
+          Née à Lomé, construite pour l'Afrique. L'histoire d'une agence qui croit que chaque entrepreneur mérite une communication à la hauteur de ses ambitions.
+        </p>
+      </div>
+    </section>
+
+    <!-- Origin Story -->
+    <section class="section" aria-labelledby="origine-title">
+      <div class="container">
+        <div class="story-grid">
+          <!-- Visual placeholder -->
+          <div class="story-visual" data-reveal="fade-right">
+            <div style="width:100%;aspect-ratio:4/5;background:linear-gradient(135deg,var(--purple-900) 0%,var(--purple-700) 100%);border-radius:var(--radius-2xl);display:flex;align-items:center;justify-content:center;font-size:8rem;position:relative;overflow:hidden;">
+              <div class="orb orb-purple" style="width:250px;height:250px;bottom:-50px;right:-50px;opacity:0.3;" aria-hidden="true"></div>
+              <span role="img" aria-label="Équipe FAVEL">🏢</span>
+            </div>
+            <div class="story-floating-card story-floating-card--br" aria-hidden="true">
+              <p style="font-size:var(--text-xs);color:var(--gray-500);margin-bottom:4px;">Fondée en</p>
+              <p style="font-family:var(--font-display);font-size:var(--text-3xl);font-weight:900;background:var(--gradient-cta);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">2022</p>
+              <p style="font-size:var(--text-xs);color:var(--purple-300);">📍 Lomé, Togo</p>
+            </div>
+          </div>
+
+          <!-- Story Text -->
+          <div data-reveal="fade-left">
+            <p class="section-label" style="margin-bottom:var(--space-4);">Notre origine</p>
+            <h2 class="section-title" id="origine-title" style="margin-bottom:var(--space-6);">
+              Née d'un <span class="highlight">constat</span> simple
+            </h2>
+            <div style="display:flex;flex-direction:column;gap:var(--space-5);">
+              <p style="color:var(--gray-300);line-height:1.8;">
+                Tout a commencé en 2022 à Lomé. En observant les marchés, boutiques et entrepreneurs autour de nous, nous avons constaté quelque chose qui nous touchait profondément : des gens brillants, des produits excellents, des services de qualité... mais une communication qui ne leur rendait pas justice.
+              </p>
+              <p style="color:var(--gray-300);line-height:1.8;">
+                Les agences traditionnelles étaient trop chères, trop lentes, et souvent déconnectées des réalités africaines. Les entrepreneurs devaient choisir entre se passer de communication professionnelle ou se ruiner.
+              </p>
+              <p style="color:var(--gray-300);line-height:1.8;">
+                FAVEL est née pour résoudre ce problème. Notre mission : rendre la communication premium accessible à tous les entrepreneurs africains, avec les outils qu'ils utilisent déjà au quotidien — à commencer par WhatsApp.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission Quote -->
+    <section class="section" style="padding-top:0;" aria-label="Notre mission">
+      <div class="container">
+        <div class="mission-quote" data-reveal="scale-up">
+          <blockquote>
+            "Chaque entrepreneur africain mérite une communication qui inspire confiance, crée du désir et génère des ventes — sans se ruiner."
+          </blockquote>
+          <cite>— L'équipe FAVEL, Lomé 2022</cite>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="section" aria-labelledby="parcours-title">
+      <div class="container">
+        <div style="display:grid;grid-template-columns:1fr;gap:var(--space-16);align-items:start;">
+          <div>
+            <header class="section-header" data-reveal="fade-up">
+              <p class="section-label">Notre parcours</p>
+              <h2 class="section-title" id="parcours-title">3 ans de <span class="highlight">croissance</span></h2>
+            </header>
+            <div class="timeline" data-stagger>
+              <div class="timeline-item">
+                <p class="timeline-year">2022 — Naissance</p>
+                <h3 class="timeline-title">FAVEL ouvre ses portes</h3>
+                <p class="timeline-text">Lancement avec seulement 2 services : cartes de visite et flyers. Nos 50 premiers clients nous font immédiatement confiance.</p>
+              </div>
+              <div class="timeline-item">
+                <p class="timeline-year">2023 — Expansion</p>
+                <h3 class="timeline-title">Le digital entre dans notre offre</h3>
+                <p class="timeline-text">Lancement des kits réseaux sociaux et de l'identité visuelle. Nous atteignons 200 clients satisfaits. L'équipe passe de 2 à 5 personnes.</p>
+              </div>
+              <div class="timeline-item">
+                <p class="timeline-year">2024 — Scalabilité</p>
+                <h3 class="timeline-title">Les packs changent tout</h3>
+                <p class="timeline-text">Introduction de nos formules pack, plébiscitées par les PME. 350 clients actifs. Premier ebook lancé avec succès.</p>
+              </div>
+              <div class="timeline-item">
+                <p class="timeline-year">2025 — Ambition régionale</p>
+                <h3 class="timeline-title">FAVEL rayonne dans toute l'Afrique de l'Ouest</h3>
+                <p class="timeline-text">Plus de 500 entrepreneurs servis à travers le Togo, la Côte d'Ivoire, le Sénégal et le Bénin. La mission continue.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values -->
+    <section class="section" style="background:rgba(26,5,51,0.4);" aria-labelledby="valeurs-title">
+      <div class="container">
+        <header class="section-header section-header--center" data-reveal="fade-up">
+          <p class="section-label">Ce qui nous guide</p>
+          <h2 class="section-title" id="valeurs-title">Nos <span class="highlight">Valeurs</span></h2>
+        </header>
+        <div class="grid-3" data-stagger>
+          <article class="value-card">
+            <span class="value-card__icon" aria-hidden="true">🎯</span>
+            <h3 class="value-card__title">Excellence sans compromis</h3>
+            <p class="value-card__text">Chaque création que nous livrons doit être digne d'une agence internationale. Pas de médiocrité, jamais.</p>
+          </article>
+          <article class="value-card">
+            <span class="value-card__icon" aria-hidden="true">❤️</span>
+            <h3 class="value-card__title">Ancrage africain</h3>
+            <p class="value-card__text">Nous comprenons votre réalité parce que nous la vivons. Notre travail reflète l'âme et les ambitions de l'Afrique de l'Ouest.</p>
+          </article>
+          <article class="value-card">
+            <span class="value-card__icon" aria-hidden="true">🤝</span>
+            <h3 class="value-card__title">Accessibilité pour tous</h3>
+            <p class="value-card__text">Une communication de qualité ne doit pas être réservée aux grandes entreprises. Nous servons aussi bien le petit commerçant que la PME.</p>
+          </article>
+          <article class="value-card">
+            <span class="value-card__icon" aria-hidden="true">⚡</span>
+            <h3 class="value-card__title">Rapidité d'exécution</h3>
+            <p class="value-card__text">Votre temps est précieux. Nous livrons vite, sans sacrifier la qualité.</p>
+          </article>
+          <article class="value-card">
+            <span class="value-card__icon" aria-hidden="true">🔄</span>
+            <h3 class="value-card__title">Satisfaction garantie</h3>
+            <p class="value-card__text">Nous retravaillons jusqu'à ce que vous soyez 100% satisfait. Votre réussite est notre réussite.</p>
+          </article>
+          <article class="value-card">
+            <span class="value-card__icon" aria-hidden="true">🌍</span>
+            <h3 class="value-card__title">Vision régionale</h3>
+            <p class="value-card__text">Nous construisons pour l'Afrique de demain. Chaque entrepreneur que nous aidons contribue à l'essor économique du continent.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section class="section" aria-labelledby="equipe-title">
+      <div class="container">
+        <header class="section-header section-header--center" data-reveal="fade-up">
+          <p class="section-label">Les visages derrière FAVEL</p>
+          <h2 class="section-title" id="equipe-title">Notre <span class="highlight">Équipe</span></h2>
+          <p class="section-subtitle">Une équipe passionnée, diversifiée, 100% africaine et déterminée à vous livrer le meilleur.</p>
+        </header>
+
+        <div class="team-grid" data-stagger>
+          <article class="team-card">
+            <div class="team-avatar" aria-label="Avatar de Koffi">K</div>
+            <p class="team-name">Koffi Ablor</p>
+            <p class="team-role">Fondateur & Directeur Créatif</p>
+            <p class="team-bio">Designer autodidacte passionné par l'esthétique africaine moderne. 5 ans d'expérience en branding et communication visuelle.</p>
+          </article>
+          <article class="team-card">
+            <div class="team-avatar" style="background:linear-gradient(135deg,var(--purple-600),var(--purple-400));" aria-label="Avatar d'Aïda">A</div>
+            <p class="team-name">Aïda Soumana</p>
+            <p class="team-role">Directrice Commerciale</p>
+            <p class="team-bio">Spécialiste de la relation client et du développement commercial. Elle s'assure que chaque entrepreneur se sente accompagné de A à Z.</p>
+          </article>
+          <article class="team-card">
+            <div class="team-avatar" style="background:linear-gradient(135deg,#4A1080,#9333EA);" aria-label="Avatar de Marc">M</div>
+            <p class="team-name">Marc Djangon</p>
+            <p class="team-role">Responsable Production</p>
+            <p class="team-bio">Maître de l'imprimerie et des délais. Il s'assure que chaque commande est parfaite et livrée dans les temps.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" aria-labelledby="cta-story-title">
+      <div class="container">
+        <div class="cta-band" data-reveal="scale-up">
+          <div class="orb orb-purple" style="width:300px;height:300px;top:-100px;right:-100px;opacity:0.2;" aria-hidden="true"></div>
+          <h2 class="cta-band__title" id="cta-story-title">
+            Rejoignez notre histoire.
+          </h2>
+          <p class="cta-band__subtitle">
+            Faites partie des centaines d'entrepreneurs qui ont choisi FAVEL pour transformer leur communication.
+          </p>
+          <div class="cta-band__actions">
+            <a href="packs.html" class="btn btn-primary btn-lg">Voir nos packs →</a>
+            <a href="contact.html" class="btn btn-secondary btn-lg">Nous contacter</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION MERCI ─────────────────────────────────── -->
+    <section aria-label="Remerciements FAVEL" style="padding-block:var(--space-20) var(--space-16);background:linear-gradient(135deg,#2D0B5A 0%,#5B1A8A 60%,#8B2FC9 100%);overflow:hidden;position:relative;">
+      <div aria-hidden="true" style="position:absolute;top:-80px;left:-60px;width:300px;height:300px;background:rgba(168,85,247,0.18);border-radius:50%;filter:blur(80px);"></div>
+      <div aria-hidden="true" style="position:absolute;bottom:-80px;right:-60px;width:350px;height:350px;background:rgba(147,51,234,0.15);border-radius:50%;filter:blur(100px);"></div>
+      <div class="container" style="text-align:center;position:relative;z-index:2;">
+        <figure style="margin:0 auto;max-width:340px;">
+          <img src="MERCI.jpg" alt="Merci pour votre confiance — FAVEL" width="340" height="340" loading="lazy"
+               style="width:100%;max-width:340px;height:auto;border-radius:var(--radius-2xl);box-shadow:0 20px 60px rgba(147,51,234,0.45),0 0 0 3px rgba(168,85,247,0.3);">
+          <figcaption style="margin-top:var(--space-6);font-family:var(--font-display);font-size:clamp(1.25rem,3vw,1.75rem);font-weight:700;color:var(--white);">
+            Merci de nous faire confiance ✨
+            <span style="display:block;font-family:var(--font-body);font-size:var(--text-base);font-weight:400;color:var(--purple-300);margin-top:var(--space-2);">Chaque client FAVEL est un partenaire de croissance</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="nav__logo" aria-label="FAVEL — Accueil" style="display:flex;align-items:center;gap:var(--space-2);"><img src="LOGO2.jpg" alt="FAVEL Logo" width="48" height="48" style="height:48px;width:auto;border-radius:6px;object-fit:contain;"><span style="font-size:1.75rem;font-weight:900;letter-spacing:-0.03em;background:var(--gradient-cta);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">FAVEL</span></a>
+          <p>Votre partenaire communication premium en Afrique francophone.</p>
+        </div>
+        <nav aria-label="Pages"><p class="footer__title">Navigation</p><ul class="footer__links" role="list"><li><a href="index.html" class="footer__link">Accueil</a></li><li><a href="produits.html" class="footer__link">Produits</a></li><li><a href="packs.html" class="footer__link">Packs</a></li><li><a href="ebooks.html" class="footer__link">Ebooks</a></li></ul></nav>
+        <nav aria-label="Infos"><p class="footer__title">Infos</p><ul class="footer__links" role="list"><li><a href="notre-histoire.html" class="footer__link">Notre Histoire</a></li><li><a href="contact.html" class="footer__link">Contact</a></li></ul></nav>
+        <div><p class="footer__title">Contact</p><ul class="footer__links" role="list"><li><a href="https://wa.me/22890000000" class="footer__link" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="mailto:contact@favel.tg" class="footer__link">contact@favel.tg</a></li></ul></div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2025 FAVEL. Tous droits réservés.</p>
+        <p class="footer__copy"><em>Facilitez votre communication</em></p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/22890000000" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat WhatsApp FAVEL">
+    <div class="whatsapp-float__pulse" aria-hidden="true"></div>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>
+  <button class="scroll-top" aria-label="Retour en haut de page">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

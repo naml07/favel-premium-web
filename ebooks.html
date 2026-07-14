@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1A0533">
+  <title>Ebook — Guide Communication Digitale Afrique | FAVEL</title>
+  <meta name="description" content="Téléchargez 'Le Guide Ultime de la Communication Digitale en Afrique' par FAVEL. Stratégies éprouvées, conseils pratiques, outils pour développer votre business en Afrique de l'Ouest.">
+  <link rel="canonical" href="https://favel.tg/ebooks.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    .ebook-benefits-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+    @media (min-width: 640px) {
+      .ebook-benefits-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .ebook-benefit-card {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-4);
+      padding: var(--space-5);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--glass-border);
+      background: var(--glass-bg);
+      transition: all var(--duration-normal) var(--ease-smooth);
+    }
+    .ebook-benefit-card:hover {
+      border-color: rgba(147,51,234,0.3);
+      transform: translateY(-2px);
+    }
+    .ebook-benefit-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-lg);
+      background: rgba(147,51,234,0.15);
+      border: 1px solid rgba(147,51,234,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .ebook-chapter {
+      display: flex;
+      gap: var(--space-4);
+      padding-block: var(--space-5);
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .ebook-chapter:last-child { border-bottom: none; }
+    .ebook-chapter-num {
+      font-family: var(--font-display);
+      font-size: var(--text-4xl);
+      font-weight: 900;
+      background: var(--gradient-cta);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      min-width: 40px;
+    }
+    .ebook-chapter h3 {
+      font-size: var(--text-base);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: var(--space-1);
+    }
+    .ebook-chapter p {
+      font-size: var(--text-sm);
+      color: var(--gray-400);
+    }
+    /* Book 3D effect */
+    .book-3d {
+      perspective: 1200px;
+      width: 220px;
+      margin: 0 auto;
+    }
+    .book-3d-inner {
+      width: 220px;
+      height: 300px;
+      position: relative;
+      transform-style: preserve-3d;
+      transform: rotateY(-25deg) rotateX(5deg);
+      animation: book-hover 4s ease-in-out infinite;
+    }
+    @keyframes book-hover {
+      0%, 100% { transform: rotateY(-25deg) rotateX(5deg); }
+      50% { transform: rotateY(-20deg) rotateX(8deg) translateY(-8px); }
+    }
+    .book-face {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--purple-800) 0%, var(--purple-600) 60%, var(--purple-500) 100%);
+      border-radius: 4px 12px 12px 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-6);
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 8px 24px rgba(147,51,234,0.4);
+    }
+    .book-face::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 24px;
+      background: rgba(0,0,0,0.3);
+      border-radius: 4px 0 0 4px;
+    }
+    .book-spine {
+      position: absolute;
+      left: -24px;
+      top: 0;
+      bottom: 0;
+      width: 24px;
+      background: var(--purple-900);
+      transform: rotateY(90deg);
+      transform-origin: right;
+    }
+    .book-title-text {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: 900;
+      color: white;
+      line-height: 1.2;
+      margin-bottom: var(--space-3);
+      letter-spacing: -0.02em;
+    }
+    .book-subtitle-text {
+      font-size: var(--text-xs);
+      color: var(--purple-200);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .book-gold-line {
+      width: 60px;
+      height: 2px;
+      background: var(--gold);
+      margin: var(--space-3) auto;
+    }
+    .book-author {
+      font-size: var(--text-xs);
+      color: var(--gold-light);
+      font-style: italic;
+    }
+    .book-glow {
+      position: absolute;
+      inset: -30px;
+      background: radial-gradient(circle, rgba(147,51,234,0.3) 0%, transparent 70%);
+      filter: blur(20px);
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+  <div class="page-loader" aria-hidden="true"><div class="loader-logo">FAVEL</div></div>
+
+  <header role="banner">
+    <nav class="nav" aria-label="Navigation principale">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo" aria-label="FAVEL — Accueil" style="display:flex;align-items:center;gap:var(--space-2);">
+          <img src="LOGO2.jpg" alt="FAVEL Logo" class="nav__logo-img" width="52" height="52" style="height:52px;width:auto;border-radius:8px;object-fit:contain;">
+          <span style="font-size:2rem;font-weight:900;letter-spacing:-0.03em;background:var(--gradient-cta);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">FAVEL</span>
+        </a>
+        <ul class="nav__links" role="list">
+          <li><a href="index.html"           class="nav__link">Accueil</a></li>
+          <li><a href="produits.html"        class="nav__link">Produits</a></li>
+          <li><a href="packs.html"           class="nav__link">Packs</a></li>
+          <li><a href="ebooks.html"          class="nav__link active" aria-current="page">Ebooks</a></li>
+          <li><a href="notre-histoire.html"  class="nav__link">Notre Histoire</a></li>
+          <li><a href="contact.html"         class="nav__link">Contact</a></li>
+        </ul>
+        <div class="nav__cta"><a href="contact.html" class="btn btn-primary">Nous écrire</a></div>
+        <button class="nav__hamburger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+    <nav class="nav__mobile" aria-label="Menu mobile">
+      <a href="index.html"          class="nav__mobile-link">Accueil</a>
+      <a href="produits.html"       class="nav__mobile-link">Produits</a>
+      <a href="packs.html"          class="nav__mobile-link">Packs</a>
+      <a href="ebooks.html"         class="nav__mobile-link">Ebooks</a>
+      <a href="notre-histoire.html" class="nav__mobile-link">Notre Histoire</a>
+      <a href="contact.html"        class="nav__mobile-link">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- Page Header -->
+    <section class="page-header" style="padding-bottom:var(--space-8);">
+      <div class="orb orb-purple" style="width:500px;height:500px;top:-200px;right:-150px;opacity:0.15;" aria-hidden="true"></div>
+      <div class="container" style="position:relative;z-index:2;">
+        <nav aria-label="Fil d'Ariane">
+          <ol class="breadcrumb" style="justify-content:center;">
+            <li><a href="index.html">Accueil</a></li>
+            <li class="breadcrumb__sep" aria-hidden="true">/</li>
+            <li aria-current="page">Ebooks</li>
+          </ol>
+        </nav>
+        <p class="section-label" style="justify-content:center;" data-reveal="fade-up">Ressources Premium</p>
+        <h1 class="page-header__title" data-reveal="fade-up" data-delay="100">
+          Nos <span class="text-gradient">Ebooks</span>
+        </h1>
+      </div>
+    </section>
+
+    <!-- Ebook Hero -->
+    <section class="section" aria-labelledby="ebook-title">
+      <div class="container">
+        <div class="ebook-hero">
+
+          <!-- Book Visual -->
+          <div class="ebook-cover-wrapper" data-reveal="fade-right">
+            <div class="book-glow" aria-hidden="true"></div>
+            <div class="book-3d" role="img" aria-label="Couverture de l'ebook Guide de la Communication Digitale en Afrique">
+              <div class="book-3d-inner">
+                <div class="book-face">
+                  <div class="book-gold-line"></div>
+                  <p class="book-title-text">Le Guide Ultime de la Communication<br>Digitale en Afrique</p>
+                  <div class="book-gold-line"></div>
+                  <p class="book-author">par FAVEL</p>
+                  <p class="book-subtitle-text" style="margin-top:var(--space-4);">Édition 2025</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Book Info -->
+          <div data-reveal="fade-left">
+            <div class="badge badge-gold" style="margin-bottom:var(--space-4);">📚 Ebook numérique</div>
+            <h2 class="section-title" id="ebook-title" style="font-size:clamp(1.75rem,4vw,2.75rem);">
+              Le Guide Ultime de la<br>
+              <span class="highlight">Communication Digitale</span><br>
+              en Afrique
+            </h2>
+
+            <p style="font-size:var(--text-base);color:var(--gray-400);line-height:1.7;margin-block:var(--space-5) var(--space-6);">
+              120 pages de stratégies concrètes et éprouvées pour développer votre présence en ligne, attirer plus de clients et faire grandir votre business en Afrique de l'Ouest. Rédigé par l'équipe FAVEL après 3 ans d'expérience terrain.
+            </p>
+
+            <!-- Stars & Reviews -->
+            <div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-6);">
+              <div style="color:var(--gold);font-size:20px;" aria-label="Note 5 étoiles">★★★★★</div>
+              <span style="font-size:var(--text-sm);color:var(--gray-400);">4.9/5 · 87 lecteurs</span>
+            </div>
+
+            <!-- Price + CTA -->
+            <div style="display:flex;align-items:center;gap:var(--space-6);flex-wrap:wrap;margin-bottom:var(--space-6);">
+              <div>
+                <div class="price-amount" style="font-family:var(--font-display);font-size:var(--text-4xl);font-weight:900;color:var(--white);letter-spacing:-0.03em;">5 000</div>
+                <div style="font-size:var(--text-sm);color:var(--gray-400);">CFA · Accès à vie</div>
+              </div>
+              <button class="btn btn-primary btn-lg"
+                data-order="Ebook — Guide Communication Digitale"
+                data-product="Ebook : Le Guide Ultime de la Communication Digitale en Afrique"
+                data-price="5000"
+                data-type="Ebook"
+                aria-label="Acheter l'ebook Guide Communication Digitale">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Télécharger maintenant
+              </button>
+            </div>
+
+            <!-- Guarantees -->
+            <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);font-size:var(--text-xs);color:var(--gray-400);">
+              <span style="display:flex;align-items:center;gap:4px;">🔒 Paiement sécurisé</span>
+              <span style="display:flex;align-items:center;gap:4px;">📥 Livraison immédiate</span>
+              <span style="display:flex;align-items:center;gap:4px;">♾️ Accès à vie</span>
+              <span style="display:flex;align-items:center;gap:4px;">📱 Compatible tous écrans</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="section" style="padding-top:0;" aria-labelledby="benefits-title">
+      <div class="container">
+        <header class="section-header section-header--center" data-reveal="fade-up">
+          <p class="section-label">Ce que vous apprendrez</p>
+          <h2 class="section-title" id="benefits-title">
+            Ce guide va <span class="highlight">transformer</span><br>votre approche
+          </h2>
+        </header>
+
+        <div class="ebook-benefits-grid" data-stagger>
+          <article class="ebook-benefit-card">
+            <div class="ebook-benefit-icon" aria-hidden="true">📱</div>
+            <div>
+              <h3 style="font-size:var(--text-base);font-weight:700;color:var(--white);margin-bottom:4px;">Réseaux sociaux efficaces</h3>
+              <p style="font-size:var(--text-sm);color:var(--gray-400);">Les stratégies qui fonctionnent vraiment pour le marché africain, sans budget publicitaire excessif.</p>
+            </div>
+          </article>
+          <article class="ebook-benefit-card">
+            <div class="ebook-benefit-icon" aria-hidden="true">📈</div>
+            <div>
+              <h3 style="font-size:var(--text-base);font-weight:700;color:var(--white);margin-bottom:4px;">Croissance organique</h3>
+              <p style="font-size:var(--text-sm);color:var(--gray-400);">Construisez une audience fidèle et engagée qui achète naturellement vos produits et services.</p>
+            </div>
+          </article>
+          <article class="ebook-benefit-card">
+            <div class="ebook-benefit-icon" aria-hidden="true">💬</div>
+            <div>
+              <h3 style="font-size:var(--text-base);font-weight:700;color:var(--white);margin-bottom:4px;">WhatsApp Business Pro</h3>
+              <p style="font-size:var(--text-sm);color:var(--gray-400);">Transformez WhatsApp en machine à vendre automatisée pour votre business africain.</p>
+            </div>
+          </article>
+          <article class="ebook-benefit-card">
+            <div class="ebook-benefit-icon" aria-hidden="true">✍️</div>
+            <div>
+              <h3 style="font-size:var(--text-base);font-weight:700;color:var(--white);margin-bottom:4px;">Copywriting qui convertit</h3>
+              <p style="font-size:var(--text-sm);color:var(--gray-400);">Les formules de copywriting adaptées à la culture africaine pour des messages qui touchent et convertissent.</p>
+            </div>
+          </article>
+          <article class="ebook-benefit-card">
+            <div class="ebook-benefit-icon" aria-hidden="true">🎯</div>
+            <div>
+              <h3 style="font-size:var(--text-base);font-weight:700;color:var(--white);margin-bottom:4px;">Positionnement de marque</h3>
+              <p style="font-size:var(--text-sm);color:var(--gray-400);">Comment vous différencier dans un marché compétitif et justifier des prix plus élevés.</p>
+            </div>
+          </article>
+          <article class="ebook-benefit-card">
+            <div class="ebook-benefit-icon" aria-hidden="true">🚀</div>
+            <div>
+              <h3 style="font-size:var(--text-base);font-weight:700;color:var(--white);margin-bottom:4px;">Plan d'action 30 jours</h3>
+              <p style="font-size:var(--text-sm);color:var(--gray-400);">Un plan d'action concret semaine par semaine pour appliquer immédiatement tout ce que vous apprenez.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Table of Contents -->
+    <section class="section" style="padding-top:0;" aria-labelledby="sommaire-title">
+      <div class="container">
+        <div style="max-width:700px;margin-inline:auto;">
+          <header class="section-header section-header--center" data-reveal="fade-up">
+            <p class="section-label">Sommaire</p>
+            <h2 class="section-title" id="sommaire-title">Les <span class="highlight">10 chapitres</span></h2>
+          </header>
+
+          <div data-stagger>
+            <div class="ebook-chapter">
+              <div class="ebook-chapter-num" aria-hidden="true">01</div>
+              <div>
+                <h3>Comprendre le marché africain en 2025</h3>
+                <p>Tendances, opportunités et erreurs à éviter dans la communication digitale africaine.</p>
+              </div>
+            </div>
+            <div class="ebook-chapter">
+              <div class="ebook-chapter-num" aria-hidden="true">02</div>
+              <div>
+                <h3>Construire une identité de marque forte</h3>
+                <p>Logo, couleurs, typographie — les bases d'une image professionnelle crédible.</p>
+              </div>
+            </div>
+            <div class="ebook-chapter">
+              <div class="ebook-chapter-num" aria-hidden="true">03</div>
+              <div>
+                <h3>Instagram & Facebook : les stratégies qui marchent</h3>
+                <p>Contenus, fréquence, engagement — le guide opérationnel pour chaque plateforme.</p>
+              </div>
+            </div>
+            <div class="ebook-chapter">
+              <div class="ebook-chapter-num" aria-hidden="true">04</div>
+              <div>
+                <h3>WhatsApp Business : votre arme secrète</h3>
+                <p>Catalogues, automatisation, statuts — exploitez WhatsApp à 100% pour votre business.</p>
+              </div>
+            </div>
+            <div class="ebook-chapter">
+              <div class="ebook-chapter-num" aria-hidden="true">05</div>
+              <div>
+                <h3>L'art du copywriting africain</h3>
+                <p>Écrire pour toucher, convaincre et déclencher l'action auprès de vos clients.</p>
+              </div>
+            </div>
+            <div class="ebook-chapter">
+              <div class="ebook-chapter-num" aria-hidden="true">06–10</div>
+              <div>
+                <h3>+ 5 chapitres supplémentaires</h3>
+                <p>Publicité payante, email marketing, fidélisation, témoignages, et votre plan 30 jours.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Target Audience -->
+    <section class="section" style="background:rgba(45,10,92,0.2);padding-top:var(--space-16);padding-bottom:var(--space-16);" aria-labelledby="pour-qui-title">
+      <div class="container">
+        <header class="section-header section-header--center" data-reveal="fade-up">
+          <p class="section-label">Pour qui ?</p>
+          <h2 class="section-title" id="pour-qui-title">Cet ebook est fait <span class="highlight">pour vous</span></h2>
+        </header>
+        <div class="grid-3" data-stagger>
+          <article class="value-card" style="text-align:center;">
+            <span class="value-card__icon" aria-hidden="true">💼</span>
+            <h3 class="value-card__title">Entrepreneurs</h3>
+            <p class="value-card__text">Vous lancez ou développez votre activité et voulez une communication qui convertit dès le premier jour.</p>
+          </article>
+          <article class="value-card" style="text-align:center;">
+            <span class="value-card__icon" aria-hidden="true">🏪</span>
+            <h3 class="value-card__title">Commerçants</h3>
+            <p class="value-card__text">Vous avez une boutique physique ou en ligne et souhaitez attirer plus de clients via les réseaux.</p>
+          </article>
+          <article class="value-card" style="text-align:center;">
+            <span class="value-card__icon" aria-hidden="true">🎓</span>
+            <h3 class="value-card__title">Étudiants & Freelances</h3>
+            <p class="value-card__text">Vous bâtissez votre personal branding et voulez vous démarquer sur un marché compétitif.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section" aria-labelledby="cta-ebook-title">
+      <div class="container">
+        <div class="cta-band" data-reveal="scale-up">
+          <div class="orb orb-purple" style="width:350px;height:350px;top:-100px;right:-100px;opacity:0.25;" aria-hidden="true"></div>
+          <div class="badge badge-gold" style="margin-bottom:var(--space-4);">⚡ Accès immédiat</div>
+          <h2 class="cta-band__title" id="cta-ebook-title">
+            Votre transformation commence aujourd'hui.
+          </h2>
+          <p class="cta-band__subtitle">
+            Pour seulement 5 000 CFA, accédez à 3 ans d'expertise de terrain compressés en 120 pages actionables. Livré instantanément sur WhatsApp.
+          </p>
+          <div style="display:flex;align-items:center;justify-content:center;gap:var(--space-3);margin-bottom:var(--space-6);">
+            <span style="font-family:var(--font-display);font-size:var(--text-5xl);font-weight:900;background:var(--gradient-cta);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">5 000</span>
+            <span style="color:var(--gray-400);">CFA · Paiement sécurisé</span>
+          </div>
+          <div class="cta-band__actions">
+            <button class="btn btn-primary btn-lg"
+              data-order="Ebook Guide Communication Digitale"
+              data-product="Ebook : Le Guide Ultime de la Communication Digitale en Afrique"
+              data-price="5000"
+              data-type="Ebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Commander l'ebook maintenant
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION MERCI ─────────────────────────────────── -->
+    <section aria-label="Remerciements FAVEL" style="padding-block:var(--space-20) var(--space-16);background:linear-gradient(135deg,#2D0B5A 0%,#5B1A8A 60%,#8B2FC9 100%);overflow:hidden;position:relative;">
+      <div aria-hidden="true" style="position:absolute;top:-80px;left:-60px;width:300px;height:300px;background:rgba(168,85,247,0.18);border-radius:50%;filter:blur(80px);"></div>
+      <div aria-hidden="true" style="position:absolute;bottom:-80px;right:-60px;width:350px;height:350px;background:rgba(147,51,234,0.15);border-radius:50%;filter:blur(100px);"></div>
+      <div class="container" style="text-align:center;position:relative;z-index:2;">
+        <figure style="margin:0 auto;max-width:340px;">
+          <img src="MERCI.jpg" alt="Merci pour votre confiance — FAVEL" width="340" height="340" loading="lazy"
+               style="width:100%;max-width:340px;height:auto;border-radius:var(--radius-2xl);box-shadow:0 20px 60px rgba(147,51,234,0.45),0 0 0 3px rgba(168,85,247,0.3);">
+          <figcaption style="margin-top:var(--space-6);font-family:var(--font-display);font-size:clamp(1.25rem,3vw,1.75rem);font-weight:700;color:var(--white);">
+            Merci de nous faire confiance ✨
+            <span style="display:block;font-family:var(--font-body);font-size:var(--text-base);font-weight:400;color:var(--purple-300);margin-top:var(--space-2);">Chaque client FAVEL est un partenaire de croissance</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="nav__logo" aria-label="FAVEL — Accueil" style="display:flex;align-items:center;gap:var(--space-2);"><img src="LOGO2.jpg" alt="FAVEL Logo" width="48" height="48" style="height:48px;width:auto;border-radius:6px;object-fit:contain;"><span style="font-size:1.75rem;font-weight:900;letter-spacing:-0.03em;background:var(--gradient-cta);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">FAVEL</span></a>
+          <p>Votre partenaire communication premium en Afrique francophone.</p>
+        </div>
+        <nav aria-label="Pages"><p class="footer__title">Navigation</p><ul class="footer__links" role="list"><li><a href="index.html" class="footer__link">Accueil</a></li><li><a href="produits.html" class="footer__link">Produits</a></li><li><a href="packs.html" class="footer__link">Packs</a></li><li><a href="ebooks.html" class="footer__link">Ebooks</a></li></ul></nav>
+        <nav aria-label="Infos"><p class="footer__title">Infos</p><ul class="footer__links" role="list"><li><a href="notre-histoire.html" class="footer__link">Notre Histoire</a></li><li><a href="contact.html" class="footer__link">Contact</a></li></ul></nav>
+        <div><p class="footer__title">Contact</p><ul class="footer__links" role="list"><li><a href="https://wa.me/22890000000" class="footer__link" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="mailto:contact@favel.tg" class="footer__link">contact@favel.tg</a></li></ul></div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2025 FAVEL. Tous droits réservés.</p>
+        <p class="footer__copy"><em>Facilitez votre communication</em></p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/22890000000" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat WhatsApp FAVEL">
+    <div class="whatsapp-float__pulse" aria-hidden="true"></div>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>
+  <button class="scroll-top" aria-label="Retour en haut de page">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/purchase.js" defer></script>
+</body>
+</html>
