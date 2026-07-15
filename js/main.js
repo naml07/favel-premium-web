@@ -1,371 +1,312 @@
 /* ============================================================
-   FAVEL — Main JavaScript
-   Navigation, interactions, utilities
+   FAVEL — Premium Main Script
+   Reveals, counters, navigation, transitions
    ============================================================ */
 
-'use strict';
-
-// ─── CONSTANTS ────────────────────────────────────────────────
-const WHATSAPP_NUMBER = '22890000000'; // À remplacer par le vrai numéro
-
-// ─── DOM Ready ────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
-  initPageLoader();
-  initNavigation();
-  initCustomCursor();
-  initScrollEffects();
-  initRippleButtons();
-  initWhatsAppFloat();
-  initScrollTop();
-  initAccordions();
-  setActiveNavLink();
-});
+  'use strict';
 
-// ─── PAGE LOADER ──────────────────────────────────────────────
-function initPageLoader() {
-  const loader = document.querySelector('.page-loader');
-  if (!loader) return;
+  // State management
+  const FavelApp = {
+    isMobile: window.innerWidth < 768,
+    scrollThreshold: 50,
+    elements: {
+      nav: document.querySelector('.nav'),
+      hamburger: document.querySelector('.nav__hamburger'),
+      mobileMenu: document.querySelector('.nav__mobile'),
+      scrollTopBtn: document.querySelector('.scroll-top'),
+      loader: document.querySelector('.page-loader')
+    },
 
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      loader.classList.add('loaded');
-    }, 600);
-  });
+    init() {
+      this.handleLoader();
+      this.initNavigation();
+      this.initScrollReveal();
+      this.initCounters();
+      this.initScrollTop();
+      this.initRippleEffect();
+      this.initParallax();
+      this.initSpotlight();
+      this.initMagneticButtons();
+      
+      // Active link handler
+      this.highlightActiveLink();
+    },
 
-  // Fallback
-  setTimeout(() => {
-    if (loader) loader.classList.add('loaded');
-  }, 2500);
-}
-
-// ─── NAVIGATION ───────────────────────────────────────────────
-function initNavigation() {
-  const nav       = document.querySelector('.nav');
-  const hamburger = document.querySelector('.nav__hamburger');
-  const mobileMenu = document.querySelector('.nav__mobile');
-  const mobileLinks = document.querySelectorAll('.nav__mobile-link');
-
-  if (!nav) return;
-
-  // Scroll behavior
-  let lastScroll = 0;
-  window.addEventListener('scroll', () => {
-    const currentScroll = window.scrollY;
-    if (currentScroll > 50) {
-      nav.classList.add('scrolled');
-    } else {
-      nav.classList.remove('scrolled');
-    }
-    lastScroll = currentScroll;
-  }, { passive: true });
-
-  // Mobile menu toggle
-  if (hamburger && mobileMenu) {
-    hamburger.addEventListener('click', () => {
-      const isOpen = hamburger.classList.contains('open');
-      hamburger.classList.toggle('open');
-      mobileMenu.classList.toggle('open');
-      document.body.style.overflow = isOpen ? '' : 'hidden';
-    });
-
-    // Close on link click
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('open');
-        mobileMenu.classList.remove('open');
-        document.body.style.overflow = '';
-      });
-    });
-
-    // Close on backdrop click
-    mobileMenu.addEventListener('click', (e) => {
-      if (e.target === mobileMenu) {
-        hamburger.classList.remove('open');
-        mobileMenu.classList.remove('open');
-        document.body.style.overflow = '';
+    // ── Loader ──────────────────────────────────────────────
+    handleLoader() {
+      if (this.elements.loader) {
+        window.addEventListener('load', () => {
+          setTimeout(() => {
+            this.elements.loader.classList.add('loaded');
+            document.body.style.overflow = '';
+          }, 400);
+        });
       }
-    });
-  }
+    },
 
-  // Keyboard escape to close menu
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && mobileMenu?.classList.contains('open')) {
-      hamburger?.classList.remove('open');
-      mobileMenu?.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-  });
-}
+    // ── Navigation & Hamburger ──────────────────────────────
+    initNavigation() {
+      const { nav, hamburger, mobileMenu } = this.elements;
+      if (!nav) return;
 
-// ─── SET ACTIVE NAV LINK ──────────────────────────────────────
-function setActiveNavLink() {
-  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-  const navLinks = document.querySelectorAll('.nav__link');
+      // Sticky header on scroll
+      const handleScroll = () => {
+        if (window.scrollY > this.scrollThreshold) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      };
+      
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      handleScroll(); // Trigger immediately in case page is loaded scrolled
 
-  navLinks.forEach(link => {
-    const href = link.getAttribute('href');
-    if (href === currentPath || (currentPath === '' && href === 'index.html')) {
-      link.classList.add('active');
-    }
-  });
-}
+      // Mobile menu toggle
+      if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const isOpen = hamburger.classList.toggle('open');
+          mobileMenu.classList.toggle('open');
+          
+          // Accessibility attributes
+          hamburger.setAttribute('aria-expanded', isOpen);
+          mobileMenu.setAttribute('aria-hidden', !isOpen);
+          
+          // Disable body scroll when menu is open
+          document.body.style.overflow = isOpen ? 'hidden' : '';
+        });
 
-// ─── CUSTOM CURSOR ────────────────────────────────────────────
-function initCustomCursor() {
-  // Only on desktop with fine pointer
-  if (!window.matchMedia('(min-width: 1024px) and (pointer: fine)').matches) return;
+        // Close menu on link click
+        mobileMenu.querySelectorAll('.nav__mobile-link').forEach(link => {
+          link.addEventListener('click', () => {
+            hamburger.classList.remove('open');
+            mobileMenu.classList.remove('open');
+            hamburger.setAttribute('aria-expanded', 'false');
+            mobileMenu.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+          });
+        });
 
-  const cursor   = document.createElement('div');
-  const follower = document.createElement('div');
-  cursor.className   = 'cursor';
-  follower.className = 'cursor-follower';
-  document.body.appendChild(cursor);
-  document.body.appendChild(follower);
-
-  let mouseX = 0, mouseY = 0;
-  let followerX = 0, followerY = 0;
-
-  document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    cursor.style.left = mouseX + 'px';
-    cursor.style.top  = mouseY + 'px';
-  });
-
-  // Smooth follower
-  function animateFollower() {
-    followerX += (mouseX - followerX) * 0.12;
-    followerY += (mouseY - followerY) * 0.12;
-    follower.style.left = followerX + 'px';
-    follower.style.top  = followerY + 'px';
-    requestAnimationFrame(animateFollower);
-  }
-  animateFollower();
-
-  // Hover effects
-  const hoverTargets = 'a, button, [role="button"], .card, .product-card, .pack-card, input, textarea, .filter-tab';
-  document.querySelectorAll(hoverTargets).forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      cursor.classList.add('cursor-hover');
-      follower.classList.add('cursor-follower-hover');
-    });
-    el.addEventListener('mouseleave', () => {
-      cursor.classList.remove('cursor-hover');
-      follower.classList.remove('cursor-follower-hover');
-    });
-  });
-}
-
-// ─── SCROLL EFFECTS ───────────────────────────────────────────
-function initScrollEffects() {
-  // Reveal animations
-  const reveals = document.querySelectorAll('[data-reveal]');
-  const staggerGroups = document.querySelectorAll('[data-stagger]');
-
-  if (!('IntersectionObserver' in window)) {
-    // Fallback
-    reveals.forEach(el => el.classList.add('revealed'));
-    staggerGroups.forEach(el => el.classList.add('revealed'));
-    return;
-  }
-
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const delay = entry.target.dataset.delay || 0;
-        setTimeout(() => {
-          entry.target.classList.add('revealed');
-        }, parseInt(delay));
-        revealObserver.unobserve(entry.target);
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+          if (mobileMenu.classList.contains('open') && !mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
+            hamburger.classList.remove('open');
+            mobileMenu.classList.remove('open');
+            hamburger.setAttribute('aria-expanded', 'false');
+            mobileMenu.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+          }
+        });
       }
-    });
-  }, {
-    rootMargin: '0px 0px -80px 0px',
-    threshold: 0.1
-  });
+    },
 
-  reveals.forEach(el => revealObserver.observe(el));
-  staggerGroups.forEach(el => revealObserver.observe(el));
-
-  // Stat counter animation
-  initCounters();
-}
-
-// ─── COUNTER ANIMATION ────────────────────────────────────────
-function initCounters() {
-  const counters = document.querySelectorAll('[data-count]');
-  if (!counters.length) return;
-
-  const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        animateCounter(entry.target);
-        counterObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.5 });
-
-  counters.forEach(el => counterObserver.observe(el));
-}
-
-function animateCounter(el) {
-  const target   = parseInt(el.dataset.count, 10);
-  const suffix   = el.dataset.suffix || '';
-  const duration = 2000;
-  const start    = performance.now();
-
-  function update(now) {
-    const elapsed = now - start;
-    const progress = Math.min(elapsed / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-    const current = Math.round(eased * target);
-    el.textContent = current.toLocaleString('fr-FR') + suffix;
-    if (progress < 1) requestAnimationFrame(update);
-  }
-
-  requestAnimationFrame(update);
-}
-
-// ─── RIPPLE BUTTONS ───────────────────────────────────────────
-function initRippleButtons() {
-  document.querySelectorAll('.btn').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-      const rect = this.getBoundingClientRect();
-      const ripple = document.createElement('span');
-      const size = Math.max(rect.width, rect.height);
-      const x = e.clientX - rect.left - size / 2;
-      const y = e.clientY - rect.top  - size / 2;
-
-      ripple.className = 'ripple';
-      ripple.style.cssText = `
-        width: ${size}px; height: ${size}px;
-        left: ${x}px; top: ${y}px;
-      `;
-
-      this.appendChild(ripple);
-      setTimeout(() => ripple.remove(), 700);
-    });
-  });
-}
-
-// ─── WHATSAPP FLOATING BUTTON ─────────────────────────────────
-function initWhatsAppFloat() {
-  const float = document.querySelector('.whatsapp-float');
-  if (!float) return;
-
-  float.setAttribute('href', `https://wa.me/${WHATSAPP_NUMBER}`);
-  float.setAttribute('target', '_blank');
-  float.setAttribute('rel', 'noopener noreferrer');
-  float.setAttribute('aria-label', 'Nous contacter sur WhatsApp');
-}
-
-// ─── SCROLL TO TOP ────────────────────────────────────────────
-function initScrollTop() {
-  const btn = document.querySelector('.scroll-top');
-  if (!btn) return;
-
-  window.addEventListener('scroll', () => {
-    btn.classList.toggle('visible', window.scrollY > 400);
-  }, { passive: true });
-
-  btn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-}
-
-// ─── ACCORDIONS ───────────────────────────────────────────────
-function initAccordions() {
-  document.querySelectorAll('.accordion-trigger').forEach(trigger => {
-    trigger.addEventListener('click', () => {
-      const item    = trigger.closest('.accordion-item');
-      const content = item.querySelector('.accordion-content');
-      const isOpen  = item.classList.contains('open');
-
-      // Close others
-      document.querySelectorAll('.accordion-item.open').forEach(openItem => {
-        if (openItem !== item) {
-          openItem.classList.remove('open');
+    highlightActiveLink() {
+      const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+      
+      // Desktop Links
+      document.querySelectorAll('.nav__link').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPath) {
+          link.classList.add('active');
+          link.setAttribute('aria-current', 'page');
+        } else {
+          link.classList.remove('active');
+          link.removeAttribute('aria-current');
         }
       });
 
-      // Toggle current
-      item.classList.toggle('open', !isOpen);
-      trigger.setAttribute('aria-expanded', !isOpen);
-    });
-  });
-}
+      // Mobile Links
+      document.querySelectorAll('.nav__mobile-link').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPath) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    },
 
-// ─── TOAST NOTIFICATION ───────────────────────────────────────
-function showToast(message, duration = 3000) {
-  let toast = document.querySelector('.toast');
-  if (!toast) {
-    toast = document.createElement('div');
-    toast.className = 'toast';
-    toast.setAttribute('role', 'status');
-    toast.setAttribute('aria-live', 'polite');
-    document.body.appendChild(toast);
-  }
+    // ── Intersection Observer (Scroll Reveal) ────────────────
+    initScrollReveal() {
+      const revealElements = document.querySelectorAll('[data-reveal], [data-stagger]');
+      if (!revealElements.length) return;
 
-  toast.innerHTML = `✓ ${message}`;
-  toast.classList.add('show');
+      const observerOptions = {
+        root: null,
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+      };
 
-  setTimeout(() => {
-    toast.classList.remove('show');
-  }, duration);
-}
+      const observer = new IntersectionObserver((entries, self) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            self.unobserve(entry.target); // Reveal only once
+          }
+        });
+      }, observerOptions);
 
-// ─── PAGE TRANSITION ──────────────────────────────────────────
-function initPageTransitions() {
-  const overlay = document.querySelector('.page-transition');
-  if (!overlay) return;
+      revealElements.forEach(el => observer.observe(el));
+    },
 
-  document.querySelectorAll('a[href]').forEach(link => {
-    const href = link.getAttribute('href');
-    if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel') || href.includes('wa.me')) return;
+    // ── Count Up Stats ──────────────────────────────────────
+    initCounters() {
+      const statNumbers = document.querySelectorAll('.stat-number span');
+      if (!statNumbers.length) return;
 
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      overlay.style.transform = 'scaleY(1)';
-      overlay.style.transformOrigin = 'bottom';
-      overlay.style.transition = 'transform 0.4s cubic-bezier(0.4,0,0.2,1)';
+      const observer = new IntersectionObserver((entries, self) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const target = entry.target;
+            const countTo = parseFloat(target.dataset.count);
+            const suffix = target.dataset.suffix || '';
+            const duration = 2000; // ms
+            const startTime = performance.now();
+
+            const updateCount = (currentTime) => {
+              const elapsedTime = currentTime - startTime;
+              const progress = Math.min(elapsedTime / duration, 1);
+              
+              // Easing formula (outQuad)
+              const easeProgress = progress * (2 - progress);
+              const currentValue = Math.floor(easeProgress * countTo);
+
+              target.textContent = currentValue + suffix;
+
+              if (progress < 1) {
+                requestAnimationFrame(updateCount);
+              } else {
+                target.textContent = countTo + suffix;
+              }
+            };
+
+            requestAnimationFrame(updateCount);
+            self.unobserve(target);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      statNumbers.forEach(num => observer.observe(num));
+    },
+
+    // ── Scroll to Top Button ────────────────────────────────
+    initScrollTop() {
+      const btn = this.elements.scrollTopBtn;
+      if (!btn) return;
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) {
+          btn.classList.add('visible');
+        } else {
+          btn.classList.remove('visible');
+        }
+      }, { passive: true });
+
+      btn.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    },
+
+    // ── Ripple Effect (Buttons) ─────────────────────────────
+    initRippleEffect() {
+      document.querySelectorAll('.btn').forEach(button => {
+        button.addEventListener('click', function(e) {
+          if (this.classList.contains('btn-whatsapp')) return;
+
+          const rect = this.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+
+          const ripple = document.createElement('span');
+          ripple.classList.add('ripple');
+          ripple.style.left = `${x}px`;
+          ripple.style.top = `${y}px`;
+
+          this.appendChild(ripple);
+
+          setTimeout(() => {
+            ripple.remove();
+          }, 600);
+        });
+      });
+    },
+
+    // ── Mouse Spotlight (Cards Hover) ────────────────────────
+    initSpotlight() {
+      if (this.isMobile) return;
+      
+      document.querySelectorAll('.spotlight').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          card.style.setProperty('--mouse-x', `${x}px`);
+          card.style.setProperty('--mouse-y', `${y}px`);
+        });
+      });
+    },
+
+    // ── Parallax Orbs (Slow background shift) ────────────────
+    initParallax() {
+      if (this.isMobile) return;
+
+      window.addEventListener('mousemove', (e) => {
+        const x = (e.clientX - window.innerWidth / 2) * 0.02;
+        const y = (e.clientY - window.innerHeight / 2) * 0.02;
+
+        document.querySelectorAll('.orb').forEach(orb => {
+          orb.style.transform = `translate(${x}px, ${y}px)`;
+        });
+      }, { passive: true });
+    },
+
+    // ── Magnetic Buttons (Micro-interaction) ─────────────────
+    initMagneticButtons() {
+      if (this.isMobile) return;
+
+      document.querySelectorAll('.btn-magnetic').forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+          const rect = btn.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+
+          btn.style.transform = `translate(${x * 0.35}px, ${y * 0.35}px)`;
+        });
+
+        btn.addEventListener('mouseleave', () => {
+          btn.style.transform = 'translate(0px, 0px)';
+        });
+      });
+    },
+
+    // ── Notification Toast Maker ────────────────────────────
+    showToast(message, duration = 3000) {
+      let toast = document.querySelector('.toast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.setAttribute('role', 'alert');
+        toast.setAttribute('aria-live', 'polite');
+        document.body.appendChild(toast);
+      }
+
+      toast.innerHTML = `<span aria-hidden="true">✨</span> ${message}`;
+      
+      requestAnimationFrame(() => {
+        toast.classList.add('show');
+      });
 
       setTimeout(() => {
-        window.location.href = href;
-      }, 400);
-    });
-  });
-}
+        toast.classList.remove('show');
+      }, duration);
+    }
+  };
 
-// ─── TILT EFFECT ──────────────────────────────────────────────
-function initTiltCards() {
-  document.querySelectorAll('.tilt-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width  - 0.5;
-      const y = (e.clientY - rect.top)  / rect.height - 0.5;
-      card.style.transform = `perspective(800px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg) translateZ(4px)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = '';
-    });
-  });
-}
-
-// ─── SMOOTH SCROLL FOR ANCHOR LINKS ───────────────────────────
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener('click', (e) => {
-    const target = document.querySelector(link.getAttribute('href'));
-    if (!target) return;
-    e.preventDefault();
-    const offset = 80;
-    const top = target.getBoundingClientRect().top + window.scrollY - offset;
-    window.scrollTo({ top, behavior: 'smooth' });
-  });
+  window.FavelApp = FavelApp;
+  FavelApp.init();
 });
-
-// ─── EXPOSE UTILITIES ─────────────────────────────────────────
-window.FavelApp = {
-  showToast,
-  WHATSAPP_NUMBER
-};

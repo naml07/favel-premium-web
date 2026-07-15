@@ -1,83 +1,53 @@
 /* ============================================================
-   FAVEL — Design System
-   Premium CSS Foundation
-   Version 1.0
+   FAVEL — Premium Design System
+   Global variables, layout, custom colors, animations
    ============================================================ */
 
-/* ─── Google Fonts ─────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
-/* ─── CSS Variables ─────────────────────────────────────────── */
+/* ─── Variables & Tokens ────────────────────────────────────── */
 :root {
-  /* ── Palette FAVEL — VIOLETS VIFS (source : PALLETTE.jpg) ───────
-     #2D0B5A  fond sombre profond (arrière-plan principal)
-     #5B1A8A  violet profond
-     #8B2FC9  violet vif (accentuation principale)
-     #9333EA  violet saturé vif — PRIMARY BRAND COLOR
-     #B06AE0  violet moyen lumineux
-     #C48FEF  violet clair
-     #DDB8F7  lavande lumineuse
-     #F0E0FF  presque blanc lilas
-  ─────────────────────────────────────────────────────────── */
+  /* Color Palette (Deep Purple & Luxury HSL Theme) */
+  --purple-950: #0D0118;
+  --purple-900: #1A052E;
+  --purple-850: #250A41;
+  --purple-800: #2D0B5A;
+  --purple-700: #4A1080;
+  --purple-600: #5B1A8A;
+  --purple-500: #7C24B9;
+  --purple-400: #A855F7;
+  --purple-300: #C084FC;
+  --purple-200: #D8B4FE;
+  
+  --gold:       #F5C842;
+  --gold-light: #F9DF8A;
+  --gold-dark:  #C29B23;
 
-  /* Purple Scale — Palette vivifiée depuis PALLETTE.jpg */
-  --purple-950: #2D0B5A;   /* fond profond sombre — main bg */
-  --purple-900: #3D0F78;   /* bg secondaire */
-  --purple-800: #5B1A8A;   /* violet profond */
-  --purple-700: #8B2FC9;   /* violet vif foncé */
-  --purple-600: #9333EA;   /* VIOLET VIF PRINCIPAL — brand color */
-  --purple-500: #A855F7;   /* violet lumineux — accent */
-  --purple-400: #B06AE0;   /* violet moyen lumineux */
-  --purple-300: #C48FEF;   /* violet clair */
-  --purple-200: #DDB8F7;   /* lavande lumineuse */
-  --purple-100: #F0E0FF;   /* presque blanc lilas */
+  --white:      #FFFFFF;
+  --gray-100:   #F4F4F6;
+  --gray-200:   #E4E4E7;
+  --gray-300:   #D4D4D8;
+  --gray-400:   #A1A1AA;
+  --gray-500:   #71717A;
+  --gray-600:   #52525B;
+  --gray-700:   #3F3F46;
+  --gray-800:   #27272A;
+  --gray-900:   #18181B;
 
-  /* Neutrals — blancs purs pour lisibilité maximale sur fond sombre */
-  --white:       #FFFFFF;
-  --white-pure:  #FFFFFF;
-  --black:       #09090B;
-  --gray-950:    #1A063A;
-  --gray-900:    #220850;
-  --gray-800:    #2D0B5A;
-  --gray-700:    #4A1580;
-  --gray-600:    #9D7DC0;
-  --gray-50:     #FAF5FF;
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Inter', -apple-system, sans-serif;
+  
+  --text-xs:    0.75rem;
+  --text-sm:    0.875rem;
+  --text-base:  1rem;
+  --text-lg:    1.125rem;
+  --text-xl:    1.25rem;
+  --text-2xl:   1.5rem;
+  --text-3xl:   1.875rem;
+  --text-4xl:   2.25rem;
+  --text-5xl:   3rem;
+  --text-6xl:   3.75rem;
 
-  /* Accent */
-  --gold:        #F5C842;
-  --gold-light:  #FDE68A;
-
-  /* Gradients — Violets vifs pour un look premium et lisible */
-  --gradient-hero:    linear-gradient(135deg, #2D0B5A 0%, #5B1A8A 50%, #8B2FC9 100%);
-  --gradient-card:    linear-gradient(135deg, rgba(147,51,234,0.20) 0%, rgba(168,85,247,0.08) 100%);
-  --gradient-purple:  linear-gradient(135deg, #8B2FC9 0%, #A855F7 100%);
-  --gradient-cta:     linear-gradient(135deg, #9333EA 0%, #A855F7 100%);
-  --gradient-gold:    linear-gradient(135deg, #F5C842 0%, #FDE68A 100%);
-  --gradient-dark:    linear-gradient(180deg, #2D0B5A 0%, #1A063A 100%);
-
-  /* Glass */
-  --glass-bg:     rgba(147, 51, 234, 0.10);
-  --glass-border: rgba(168, 85, 247, 0.25);
-  --glass-blur:   blur(20px);
-
-  /* Typography Scale */
-  --font-display: 'Playfair Display', 'Georgia', serif;
-  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono:    'JetBrains Mono', monospace;
-
-  --text-xs:   0.75rem;   /* 12px */
-  --text-sm:   0.875rem;  /* 14px */
-  --text-base: 1rem;      /* 16px */
-  --text-lg:   1.125rem;  /* 18px */
-  --text-xl:   1.25rem;   /* 20px */
-  --text-2xl:  1.5rem;    /* 24px */
-  --text-3xl:  1.875rem;  /* 30px */
-  --text-4xl:  2.25rem;   /* 36px */
-  --text-5xl:  3rem;      /* 48px */
-  --text-6xl:  3.75rem;   /* 60px */
-  --text-7xl:  4.5rem;    /* 72px */
-
-  /* Spacing Scale */
+  /* Spacing */
   --space-1:  0.25rem;
   --space-2:  0.5rem;
   --space-3:  0.75rem;
@@ -91,13 +61,24 @@
   --space-20: 5rem;
   --space-24: 6rem;
   --space-32: 8rem;
-  --space-40: 10rem;
 
-  /* Border Radius */
+  /* Gradients */
+  --gradient-hero: linear-gradient(135deg, var(--purple-950) 0%, var(--purple-900) 50%, var(--purple-850) 100%);
+  --gradient-cta:  linear-gradient(135deg, #AA22CC 0%, #6611BB 100%);
+  --gradient-gold: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
+  --gradient-card: linear-gradient(180deg, rgba(147,51,234,0.08) 0%, rgba(147,51,234,0.01) 100%);
+
+  /* Glassmorphism */
+  --glass-bg:     rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.07);
+  --glass-blur:   blur(16px);
+
+  /* Radius */
+  --radius-xs:   0.25rem;
   --radius-sm:   0.375rem;
-  --radius-md:   0.75rem;
-  --radius-lg:   1rem;
-  --radius-xl:   1.5rem;
+  --radius-md:   0.5rem;
+  --radius-lg:   0.75rem;
+  --radius-xl:   1rem;
   --radius-2xl:  2rem;
   --radius-full: 9999px;
 
@@ -617,7 +598,7 @@ p {
 
 .section-subtitle {
   font-size: clamp(var(--text-base), 2vw, var(--text-lg));
-  color: var(--gray-300);  /* improved: was gray-400, now lighter for readability */
+  color: var(--gray-300);
   line-height: 1.8;
   max-width: 580px;
 }
@@ -683,7 +664,7 @@ p {
 
 .badge-purple {
   background: rgba(176,106,179,0.18);
-  color: var(--purple-200);  /* lighter for contrast */
+  color: var(--purple-200);
   border: 1px solid rgba(200,168,224,0.35);
 }
 
@@ -1168,7 +1149,7 @@ p {
 .testimonial-text {
   font-size: var(--text-base);
   line-height: 1.8;
-  color: var(--gray-200);  /* improved: lighter for better readability on dark bg */
+  color: var(--gray-200);
   margin-bottom: var(--space-5);
   font-style: italic;
 }
@@ -1210,7 +1191,7 @@ p {
   align-items: flex-start;
   gap: var(--space-3);
   font-size: var(--text-sm);
-  color: var(--gray-200);  /* improved readability */
+  color: var(--gray-200);
 }
 
 .feature-item-icon {
@@ -1273,7 +1254,7 @@ p {
   background-clip: text;
 }
 
-.text-muted   { color: var(--gray-400); }
+.text-muted   { color: var(--gray-300); }
 .text-center  { text-align: center; }
 .text-sm      { font-size: var(--text-sm); }
 
@@ -1388,12 +1369,10 @@ p {
 }
 
 /* ─── Readability Overrides ──────────────────────────────────── */
-/* Ensure sufficient contrast for all paragraph and body text     */
 p, li, dd, dt, figcaption, blockquote {
   color: inherit;
 }
 
-/* Footer text legibility */
 .footer__brand p,
 .footer__link,
 .footer__copy {
@@ -1404,14 +1383,12 @@ p, li, dd, dt, figcaption, blockquote {
   color: var(--purple-200);
 }
 
-/* Card body text */
 .card p,
 .card li {
   color: var(--gray-200);
   line-height: 1.8;
 }
 
-/* Form label & placeholder contrast */
 .form-label {
   color: var(--gray-200);
   font-weight: 600;
@@ -1421,24 +1398,20 @@ p, li, dd, dt, figcaption, blockquote {
   color: var(--gray-500);
 }
 
-/* Contact choice button text */
 .contact-choice-btn {
   color: var(--gray-300);
 }
 
-/* Nav link readability */
 .nav__link {
   color: var(--gray-200);
 }
 
-/* Stat label */
 .stat-label {
   color: var(--gray-300);
   font-size: var(--text-sm);
   font-weight: 500;
 }
 
-/* Section subtitle consistent override */
 .section-subtitle,
 .text-muted {
   color: var(--gray-300);
