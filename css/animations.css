@@ -327,16 +327,38 @@
 .skip-link {
   position: fixed;
   top: -100px;
-  left: var(--space-5);
-  background: var(--purple-700);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--purple-600);
   color: white;
-  padding: 10px 20px;
-  z-index: 10000;
-  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
   font-weight: 600;
-  transition: top var(--duration-fast);
+  z-index: 99999;
+  transition: top 0.2s ease;
 }
 
 .skip-link:focus {
-  top: 0;
+  top: var(--space-4);
+}
+
+/* ─── Reduced Motion ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  [data-stagger] > * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
